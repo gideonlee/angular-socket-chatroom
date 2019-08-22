@@ -61,3 +61,7 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// Add global to window, assigning the value of window itself.
+// This is necessary to fix ng-socket-io/ngx-socket-io from getting ReferenceError: global is not defined.
+(window as any).global = window;

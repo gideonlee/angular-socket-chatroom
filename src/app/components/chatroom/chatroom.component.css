@@ -1,0 +1,33 @@
+div.chatroom-container {
+	margin: 0 auto;
+}
+div.chatroom {
+	border: 1px solid lightgrey;
+	width: 100%;
+	height: 300px;
+	border-radius: 4px
+}
+	div.chatroom div.message {
+		height: 40px;
+	}
+
+form {
+	margin-top: 10px;
+}
+
+button {
+	margin-top: 10px;
+}
+
+span.bold {
+	font-weight: bold;
+}
+
+span.delete-button { 
+	float: right;
+	cursor: pointer;
+}
+
+div.chatroom p.message:hover {
+
+}

@@ -1,0 +1,21 @@
+<div class='chatroom-container col-md-6'>
+	<p *ngIf='user.name != ""'>Welcome <span class='bold'>{{ user.name }}</span>! (Email: <span class='bold'>{{ user.email }}</span>)</p>
+	<div class='chatroom'>
+		<div class='message' *ngFor='let msg of messages; let i = index'>
+			{{ msg._user.name }}
+
+			<span class='date'>{{ msg.createdAt.substring(5, 7) }}-{{ msg.createdAt.substring(8,10) }}-{{ msg.createdAt.substring(0,4) }}</span>
+			<span class='time' *ngIf='msg.createdAt.substring(11,13)-7 >= 12'> ({{ msg.createdAt.substring(11,13)-19 }}:{{ msg.createdAt.substring(14,16) }} PM):</span>
+			<span class='time' *ngIf='msg.createdAt.substring(11,13)-7 < 12'> ({{ msg.createdAt.substring(11,13)-7 }}:{{ msg.createdAt.substring(14,16) }} AM):</span>
+			
+			{{ msg.text }} 
+
+			<span *ngIf='user.email == msg._user.email' class='delete-button btn btn-danger' (click)='deleteMessage(msg._id)'>Delete</span>
+		</div>
+	</div>
+
+	<form [formGroup]='chatForm' (ngSubmit)='submitChat()'>
+		<input class='form-control' type='text' name='message' formControlName='message'>
+		<button class='btn btn-primary' type='submit'>Submit</button>
+	</form>
+</div>

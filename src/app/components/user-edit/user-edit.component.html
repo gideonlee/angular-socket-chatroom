@@ -1,0 +1,23 @@
+<div class='col-md-4 edit-container'>
+	<form [formGroup]='editUserForm' (ngSubmit)='updateUser()'>
+		<div class='form-group'>
+			<label for='inputName'>Edit Name</label>
+			<input class='form-control' name='name' type='text' formControlName='name'>
+			<div *ngIf='submitted && myForm.name.errors && !myForm.name.pristine'>
+				<div [hidden]='!myForm.name.errors.required'>Name is required.</div>
+			</div>
+		</div>
+
+		<div class='form-group'>
+			<label for='inputEmail'>Edit Email</label>
+			<input class='form-control' name='email' type='text' formControlName='email'>
+			<div *ngIf='submitted && myForm.email.errors && !myForm.email.pristine'>
+				<div [hidden]='!myForm.email.errors.required'>Email is required.</div>
+
+				<div [hidden]='!myForm.email.errors.pattern'>Enter a valid email.'</div>
+			</div>
+		</div>
+
+		<button class='btn btn-success'>Edit User</button>
+	</form>
+</div>

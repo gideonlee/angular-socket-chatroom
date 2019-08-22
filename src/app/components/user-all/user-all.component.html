@@ -1,0 +1,22 @@
+<div class='col-md-8 container'>
+	<table class='table'>
+		<thead>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Total Messages</th>
+			<th>Login</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</thead>	
+		<tbody>
+			<tr *ngFor='let user of users; let i = index'>
+				<td>{{ user.name }}</td>			
+				<td>{{ user.email }}</td>
+				<td>{{ user.messages.length }}</td>
+				<td><button class='btn btn-success' (click)='loginUser(user)'>Login</button></td>
+				<td><button class='btn btn-primary' routerLinkActive='active' routerLink='/users/{{ user._id }}/edit'>Edit</button></td>
+				<td><button class='btn btn-danger' (click)='deleteUser(user, i)'>Delete</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
